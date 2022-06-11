@@ -11,7 +11,8 @@ app.get("/", function(req, res){
   if (currentDay === 6 || currentDay === 0){
     res.send("<h1>Yay!! Its Weekend.</h1>")
   } else {
-    res.send("Boo!! I have to work!")
+    
+    res.sendFile(__dirname + "/index.html")
   }
 });
 
