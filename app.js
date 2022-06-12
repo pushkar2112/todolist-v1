@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
-var items = [];
+var items = ["Buy Food","Cook Food","Eat Food"];
 
 app.set('view engine', 'ejs'); //add ejs support for templating
 
