@@ -30,8 +30,7 @@ app.get("/", function(req, res){
 
 app.post("/", function(req, res){
     let item = req.body.newItem;
-
-    if (req.body.newItem === "work"){
+    if (req.body.list === "Work"){
       workItems.push(item)
       res.redirect("/work")
     } else {
