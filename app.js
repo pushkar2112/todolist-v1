@@ -2,6 +2,7 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
@@ -14,15 +15,8 @@ let workItems = [];
 app.set('view engine', 'ejs'); //add ejs support for templating
 
 app.get("/", function(req, res){
-  let today = new Date();
-
-  let options = {
-    weekday : "long",
-    day : "numeric",
-    month : "long"
-  }
-
-  let day = today.toLocaleDateString("en-US", options);
+  
+  let day = date.getDate() // calling getDate function which is bound to date when we require it above
 
   res.render('list', {listTitle : day, newListItems : items}) //Add a variable to change as per the needs
 
