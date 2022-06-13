@@ -9,21 +9,21 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let items = ["Buy Food","Cook Food","Eat Food"];
-let workItems = [];
+const items = ["Buy Food","Cook Food","Eat Food"];
+const workItems = [];
 
 app.set('view engine', 'ejs'); //add ejs support for templating
 
 app.get("/", function(req, res){
   
-  let day = date.getDate() // calling getDate function which is bound to date when we require it above
+  const day = date.getDate() // calling getDate function which is bound to date when we require it above
 
   res.render('list', {listTitle : day, newListItems : items}) //Add a variable to change as per the needs
 
 });
 
 app.post("/", function(req, res){
-    let item = req.body.newItem;
+    const item = req.body.newItem;
     if (req.body.list === "Work"){
       workItems.push(item)
       res.redirect("/work")
